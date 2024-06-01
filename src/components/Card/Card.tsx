@@ -14,8 +14,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ imageSrc, backText, frontColor, backColor, onClick, isFlipped, isMatched, matchedClass }) => {
-  if (isMatched && matchedClass === '') return null; // Hide the card if it's matched and animation is done
-
+  if (isMatched && matchedClass === '') return null; 
   return (
     <div className={`card-container ${isFlipped ? 'flipped' : ''} ${matchedClass}`} onClick={onClick}>
       <div className="card-inner">
