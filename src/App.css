@@ -4,4 +4,5 @@ width: 100vw;
 height: 100vh;
 background-image: url("./assets/background-image.png");
 background-size: contain;
+background-repeat: round;
 }
