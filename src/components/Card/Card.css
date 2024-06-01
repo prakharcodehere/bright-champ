@@ -1,0 +1,77 @@
+/* Card.css */
+
+.card-container {
+      perspective: 1000px;
+      width: 9rem; /* Equivalent to w-36 class */
+      height: 13rem; /* Equivalent to h-52 class */
+    }
+    
+    .card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .card-container.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .card-container.matched {
+      animation: matchedAnimation 1s forwards;
+    }
+    
+    @keyframes matchedAnimation {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.1) rotate(10deg);
+      }
+      100% {
+        transform: scale(0) rotate(0deg);
+      }
+    }
+    
+    .card-front,
+    .card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .card-front {
+      padding: 8px; /* Equivalent to p-2 class */
+    }
+    
+    .card-back {
+      transform: rotateY(180deg);
+    }
+    
+    .left-container .card-front {
+      background-color: #FFC0CB; /* Light pink color for left-container front */
+    }
+    
+    .left-container .card-back {
+      background-color: #ADD8E6; /* Light blue color for left-container back */
+    }
+    
+    .right-container .card-front {
+      background-color: #ADD8E6; /* Light blue color for right-container front */
+    }
+    
+    .right-container .card-back {
+      background-color: #FFC0CB; /* Light pink color for right-container back */
+    }
+    
+    .heart-icon {
+      filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 14px 28px) drop-shadow(rgba(0, 0, 0, 0.22) 0px 10px 10px);
+    }
+    
