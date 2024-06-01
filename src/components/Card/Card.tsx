@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, backText, frontColor, backColor, 
   return (
     <div className={`card-container ${isFlipped ? 'flipped' : ''} ${matchedClass}`} onClick={onClick}>
       <div className="card-inner">
-        <div className="card-front" style={{ backgroundColor: frontColor }}>
+        <div className={`card-front ${frontColor}`}>
           <IoIosHeart className="text-white w-20 h-20 heart-icon" />
         </div>
         <div className="card-back" style={{ backgroundColor: backColor }}>

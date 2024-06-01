@@ -119,8 +119,8 @@ const CardLayout = () => {
             <Card
               key={index}
               imageSrc={fruit.imageSrc}
-              frontColor="#FFC0CB"
-              backColor="#ADD8E6"
+              frontColor="bg-customPink"
+              backColor="#FFC0CB"
               onClick={() => handleLeftCardClick(index)}
               isFlipped={flippedLeftCards.includes(index) || matchedPairs.includes(`left-${index}`)}
               isMatched={matchedPairs.includes(`left-${index}`)}
@@ -133,8 +133,8 @@ const CardLayout = () => {
             <Card
               key={index}
               backText={fruit.backText}
-              frontColor="#ADD8E6"
-              backColor='#FFC0CB'
+              frontColor="bg-customBlue"
+              backColor='##ADD8E6'
               onClick={() => handleRightCardClick(index)}
               isFlipped={flippedRightCards.includes(index) || matchedPairs.includes(`right-${index}`)}
               isMatched={matchedPairs.includes(`right-${index}`)}
@@ -144,10 +144,10 @@ const CardLayout = () => {
         </div>
       </div>
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal ">
+          <div className="modal-content w-72 h-64 flex flex-col items-center justify-center bg-orange-300 text-xl font-semibold" >
             <h2>{modalMessage}</h2>
-            <button onClick={handleModalClose} className='button'>Play Again</button>
+            <button onClick={handleModalClose} className='text-xl mt-4 border-4 border-orange-800 button bg-orange-600 p-2 px-4 rounded-2xl'>Play Again</button>
           </div>
         </div>
       )}

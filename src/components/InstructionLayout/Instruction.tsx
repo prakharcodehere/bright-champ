@@ -1,6 +1,6 @@
 import AppleImg from "../../assets/fruits-images/apple.png"
 import Button from "../Button/Button"
-
+import { IoIosHeart } from 'react-icons/io';
 
 interface InstructionProps {
       handleNext: () => void;
@@ -14,12 +14,12 @@ const Instruction: React.FC<InstructionProps> = ({handleNext, text}) => {
       <div className="flex w-full items-center justify-evenly mx-4">
             <div className="bg-white relative rounded-[44px]  w-[20vw] flex flex-col h-80 ">
                   <div className="absolute left-12 top-4  w-28 h-36 flex  items-center justify-center bg-gray-200 mt-4 ">
-                   <div className="w-24 h-32 bg-pink-200  rounded-xl ">
+                   <div className="w-24 h-32 bg-customPink  rounded-xl ">
 
                    </div>
                   </div>
                   <div className="absolute  top-4 right-14 rotate-12 w-28 h-36 flex  items-center justify-center bg-gray-300 mt-4 ">
-                   <div className="w-24 h-32 bg-orange-200  rounded-xl flex items-center justify-center">
+                   <div className="w-24 h-32 bg-pink-400  rounded-xl flex items-center justify-center">
 <img src={AppleImg} className="w-16 h-auto "/>
                    </div>
                   </div>
@@ -30,9 +30,9 @@ const Instruction: React.FC<InstructionProps> = ({handleNext, text}) => {
                
             </div>
             <div className="bg-white rounded-[44px] w-[20vw] h-80 flex flex-col items-center pt-4">
-            <div className=" w-28 h-36 flex  items-center justify-center bg-gray-200 mt-4 ">
-                   <div className="w-24 h-32 bg-blue-300  rounded-xl ">
-
+            <div className=" w-28 h-36 flex   items-center justify-center bg-gray-200 mt-4 ">
+                   <div className="w-24 h-32 bg-customBlue  rounded-xl flex items-center justify-center ">
+                   <IoIosHeart className="text-white w-16 h-16 heart-icon" />
                    </div>
 
                   </div>
@@ -43,16 +43,16 @@ const Instruction: React.FC<InstructionProps> = ({handleNext, text}) => {
             </div>
             <div className="bg-white  flex flex-col items-center rounded-[44px] w-[20vw] h-80">
             
-            <div className="flex items-center">
-            <div className=" w-28 h-36 flex items-center  origin-bottom justify-center bg-gray-200 mt-8 ">
-                   <div className="w-24 h-32 bg-blue-300  rounded-xl ">
-
+            <div className="flex items-center gap-2 ">
+            <div className=" w-24 h-32 flex items-center  origin-bottom -rotate-6 justify-center bg-gray-200 mt-8 ">
+                   <div className="w-20 h-28 bg-customBlue  rounded-xl flex items-center justify-center">
+                   <IoIosHeart className="text-white w-16 h-16 heart-icon" />
                    </div>
 
                   </div>
-            <div className=" w-28 h-36 flex items-center  origin-bottom justify-center bg-gray-200 mt-8 ">
-                   <div className="w-24 h-32 bg-pink-300  rounded-xl ">
-
+            <div className=" w-24 h-32 flex items-center  origin-bottom justify-center rotate-6 bg-gray-200 mt-8 ">
+                   <div className="w-20 h-28 bg-customPink  rounded-xl flex items-center justify-center">
+                   <img src={AppleImg} className="w-12 h-auto "/>
                    </div>
 
                   </div>
