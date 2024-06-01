@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import AppleImg from '../../assets/fruits-images/apple.png';
 import OrangeImg from '../../assets/fruits-images/orange.png';
@@ -17,9 +17,17 @@ const fruits = [
   { imageSrc: OrangeImg, backText: 'O', name: 'Orange' }
 ];
 
+interface Fruit {
+      imageSrc: string;
+      backText: string;
+      name: string;
+    }
+
+
 const totalPairs = fruits.length;
 
-const shuffleArray = (array) => {
+const shuffleArray = (array: Fruit[]) => {
+      //eslint-disable-next-line
   let shuffledArray = array.slice();
   for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -29,17 +37,17 @@ const shuffleArray = (array) => {
 };
 
 const CardLayout = () => {
-  const [flippedLeftCards, setFlippedLeftCards] = useState([]);
-  const [flippedRightCards, setFlippedRightCards] = useState([]);
-  const [lastClicked, setLastClicked] = useState(null);
-  const [matchedPairs, setMatchedPairs] = useState([]);
-  const [matchingPair, setMatchingPair] = useState([]);
+      const [flippedLeftCards, setFlippedLeftCards] = useState<number[]>([]);
+      const [flippedRightCards, setFlippedRightCards] = useState<number[]>([]); // Corrected type
+      const [lastClicked, setLastClicked] = useState<string | null>(null);
+      const [matchedPairs, setMatchedPairs] = useState<string[]>([]);
+      const [matchingPair, setMatchingPair] = useState<number[]>([]);
   const [progress, setProgress] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [attemptsLeft, setAttemptsLeft] = useState(5);
-  const [shuffledFruitsLeft, setShuffledFruitsLeft] = useState([]);
-  const [shuffledFruitsRight, setShuffledFruitsRight] = useState([]);
+const [shuffledFruitsLeft, setShuffledFruitsLeft] = useState<Fruit[]>([]);
+const [shuffledFruitsRight, setShuffledFruitsRight] = useState<Fruit[]>([]);
 
   useEffect(() => {
     setShuffledFruitsLeft(shuffleArray(fruits));
@@ -48,7 +56,8 @@ const CardLayout = () => {
 
   useEffect(() => {
     if (matchingPair.length === 2) {
-      const [leftIndex, rightIndex] = matchingPair;
+      const [leftIndex, rightIndex] = matchingPair.map(Number) as [number, number];
+
       if (shuffledFruitsLeft[leftIndex].backText === shuffledFruitsRight[rightIndex].backText) {
         setTimeout(() => {
           setMatchedPairs([...matchedPairs, `left-${leftIndex}`, `right-${rightIndex}`]);
@@ -84,14 +93,14 @@ const CardLayout = () => {
     }
   }, [attemptsLeft]);
 
-  const handleLeftCardClick = (index) => {
+  const handleLeftCardClick = (index: number) => {
     if (lastClicked === 'left' || flippedLeftCards.includes(index) || matchedPairs.includes(`left-${index}`) || attemptsLeft === 0) return;
     setFlippedLeftCards([...flippedLeftCards, index]);
     setLastClicked('left');
     setMatchingPair([...matchingPair, index]);
   };
 
-  const handleRightCardClick = (index) => {
+  const handleRightCardClick = (index: number) => {
     if (lastClicked === 'right' || flippedRightCards.includes(index) || matchedPairs.includes(`right-${index}`) || attemptsLeft === 0) return;
     setFlippedRightCards([...flippedRightCards, index]);
     setLastClicked('right');
